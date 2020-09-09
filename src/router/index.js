@@ -56,11 +56,9 @@ export const constantRoutes = [{
       }
     }]
   },
-
   {
     path: '/orderManage',
     component: Layout,
-    redirect: '/example/table',
     name: 'orderManage',
     meta: {
       title: '订单管理',
@@ -72,7 +70,6 @@ export const constantRoutes = [{
         component: () => import('@/views/orderManage/orderCount'),
         meta: {
           title: '订单统计',
-          icon: 'table'
         }
       },
       {
@@ -81,137 +78,108 @@ export const constantRoutes = [{
         component: () => import('@/views/orderManage/orderList'),
         meta: {
           title: '订单列表',
-          icon: 'table'
+        }
+      },
+      {
+        path: 'refundAudit',
+        name: 'refundAudit',
+        component: () => import('@/views/orderManage/refundAudit'),
+        meta: {
+          title: '退款审核',
+        }
+      },
+      {
+        path: 'refundOrder',
+        name: 'refundOrder',
+        component: () => import('@/views/orderManage/refundOrder'),
+        meta: {
+          title: '退款订单',
+        }
+      },
+      {
+        path: 'writeOffOrder',
+        name: 'writeOffOrder',
+        component: () => import('@/views/orderManage/writeOffOrder'),
+        meta: {
+          title: '核销订单',
         }
       },
     ]
   },
   {
-    path: '/example',
+    path: '/physicalExaminationManage',
     component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
+    name: 'physicalExaminationManage',
+    redirect: '/physicalExaminationManage/hospitalManage',
     meta: {
-      title: 'Example',
+      title: '体检管理',
       icon: 'el-icon-s-help'
     },
     children: [{
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
+        path: 'hospitalManage',
+        name: 'hospitalManage',
+        component: () => import('@/views/physicalExaminationManage/hospitalManage'),
         meta: {
-          title: 'Table',
-          icon: 'table'
+          title: '医院管理',
         }
       },
       {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
+        path: 'gobalPhysicalExaminationManage',
+        name: 'gobalPhysicalExaminationManage',
+        component: () => import('@/views/physicalExaminationManage/gobalPhysicalExaminationManage'),
         meta: {
-          title: 'Tree',
-          icon: 'tree'
+          title: '全局体检日管理',
         }
-      }
+      },
     ]
   },
-
   {
-    path: '/form',
+    path: '/standardDatabase',
     component: Layout,
-    children: [{
-      path: 'index',
-      name: 'Form',
-      component: () => import('@/views/form/index'),
-      meta: {
-        title: 'Form',
-        icon: 'form'
-      }
-    }]
-  },
-
-  {
-    path: '/nested',
-    component: Layout,
-    redirect: '/nested/menu1',
-    name: 'Nested',
+    name: 'standardDatabase',
+    alwaysShow: true,
+    redirect: '/standardDatabase/checkItemStandardLibrary',
     meta: {
-      title: 'Nested',
-      icon: 'nested'
+      title: '标准数据库',
+      icon: 'el-icon-s-help'
     },
     children: [{
-        path: 'menu1',
-        component: () => import('@/views/nested/menu1/index'), // Parent router-view
-        name: 'Menu1',
+      path: 'checkItemStandardLibrary',
+      name: 'checkItemStandardLibrary',
+      component: () => import('@/views/standardDatabase/checkItemStandardLibrary'),
+      meta: {
+        title: '检查项标准库',
+      }
+    }]
+  },
+  {
+    path: '/templateManage',
+    component: Layout,
+    name: 'templateManage',
+    alwaysShow: true,
+    redirect: '/templateManage/medicalPackageTemplate',
+    meta: {
+      title: '模板管理',
+      icon: 'el-icon-s-help'
+    },
+    children: [{
+        path: 'medicalPackageTemplate',
+        name: 'medicalPackageTemplate',
+        component: () => import('@/views/templateManage/medicalPackageTemplate'),
         meta: {
-          title: 'Menu1'
-        },
-        children: [{
-            path: 'menu1-1',
-            component: () => import('@/views/nested/menu1/menu1-1'),
-            name: 'Menu1-1',
-            meta: {
-              title: 'Menu1-1'
-            }
-          },
-          {
-            path: 'menu1-2',
-            component: () => import('@/views/nested/menu1/menu1-2'),
-            name: 'Menu1-2',
-            meta: {
-              title: 'Menu1-2'
-            },
-            children: [{
-                path: 'menu1-2-1',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
-                name: 'Menu1-2-1',
-                meta: {
-                  title: 'Menu1-2-1'
-                }
-              },
-              {
-                path: 'menu1-2-2',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
-                name: 'Menu1-2-2',
-                meta: {
-                  title: 'Menu1-2-2'
-                }
-              }
-            ]
-          },
-          {
-            path: 'menu1-3',
-            component: () => import('@/views/nested/menu1/menu1-3'),
-            name: 'Menu1-3',
-            meta: {
-              title: 'Menu1-3'
-            }
-          }
-        ]
+          title: '体检套餐模板',
+        }
       },
       {
-        path: 'menu2',
-        component: () => import('@/views/nested/menu2/index'),
-        name: 'Menu2',
+        path: 'medicalItemTemplate',
+        name: 'medicalItemTemplate',
+        component: () => import('@/views/templateManage/medicalItemTemplate'),
         meta: {
-          title: 'menu2'
+          title: '体检项模板',
         }
       }
     ]
   },
-
-  {
-    path: 'external-link',
-    component: Layout,
-    children: [{
-      path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-      meta: {
-        title: 'External Link',
-        icon: 'link'
-      }
-    }]
-  },
-
   // 404 page must be placed at the end !!!
   {
     path: '*',
