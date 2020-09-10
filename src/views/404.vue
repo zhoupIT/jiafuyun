@@ -22,6 +22,7 @@
 
 <script>
 
+import * as api from "@/api/api";
 export default {
   name: 'Page404',
   computed: {

@@ -70,7 +70,6 @@
 <script>
 import { validUsername } from '@/utils/validate'
 import * as api from "@/api/api";
-
 export default {
   name: 'Login',
   data() {
