@@ -125,6 +125,15 @@ export const constantRoutes = [{
       icon: 'el-icon-s-help'
     },
     children: [{
+      path: 'addHospital',
+      name: 'addHospital',
+      component: () => import('@/views/physicalExaminationManage/addHospital'),
+      hidden: true,
+      meta: {
+        title: '新增医院',
+      }
+    },
+      {
         path: 'hospitalManage',
         name: 'hospitalManage',
         component: () => import('@/views/physicalExaminationManage/hospitalManage'),
