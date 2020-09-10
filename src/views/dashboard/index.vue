@@ -7,6 +7,7 @@
 <script>
 import { mapGetters } from 'vuex'
 
+import * as api from "@/api/api";
 export default {
   name: 'Dashboard',
   computed: {

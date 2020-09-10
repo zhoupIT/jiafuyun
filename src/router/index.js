@@ -65,6 +65,15 @@ export const constantRoutes = [{
       icon: 'el-icon-s-help'
     },
     children: [{
+        path: 'orderDetail',
+        name: 'orderDetail',
+        component: () => import('@/views/orderManage/orderDetail'),
+        hidden: true,
+        meta: {
+          title: '订单详情',
+        }
+      },
+      {
         path: 'orderCount',
         name: 'orderCount',
         component: () => import('@/views/orderManage/orderCount'),
